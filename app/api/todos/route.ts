@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
     const todos = await prisma.todo.findMany({
       where: { userId: session.user.id },
       /** EXAM Q1: wrong field name — Prisma uses camelCase createdAt */
-      orderBy: { created_at: "desc" } as never,
+      orderBy: { createdAt: "desc" } as never,
     });
 
     return NextResponse.json({ data: todos });
